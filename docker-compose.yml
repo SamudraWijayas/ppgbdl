@@ -43,7 +43,7 @@ services:
     environment:
       PMA_HOST: mysql-db
       PMA_PORT: 3306
-      PMA_USER: ppgroott
+      PMA_USER: ppgroot
       PMA_PASSWORD: pembinaangenerus
       MYSQL_ROOT_PASSWORD: rootpassword
       UPLOAD_LIMIT: 100M
