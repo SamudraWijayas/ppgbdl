@@ -43,8 +43,8 @@ services:
     environment:
       PMA_HOST: mysql-db
       PMA_PORT: 3306
-      PMA_USER: root
-      PMA_PASSWORD: rootpassword
+      PMA_USER: rppgroott
+      PMA_PASSWORD: pembinaangenerus
       MYSQL_ROOT_PASSWORD: rootpassword
       UPLOAD_LIMIT: 100M
     depends_on:
@@ -56,7 +56,7 @@ services:
   # Backend Application
   backend:
     build:
-      context: ./backend-kmm-new
+      context: ./backend
       dockerfile: Dockerfile
     container_name: backend-app
     restart: always
@@ -79,12 +79,12 @@ services:
   # Frontend Absen (port 4000)
   frontend-absen:
     build:
-      context: ./absen-kmm-next
+      context: ./frontend
       dockerfile: Dockerfile
-    container_name: frontend-absen-app
+    container_name: m2bl-app
     restart: always
     ports:
-      - "4000:3000"
+      - "4000:4000"
     environment:
       - NEXT_PUBLIC_API_URL=http://backend-app:5000/api/
       - NEXT_PUBLIC_IMAGE=http://backend-app:5000
@@ -113,9 +113,9 @@ services:
   # Frontend KMM (port 3000)
   frontend-kmm:
     build:
-      context: ./frontend-kmm-next-new
+      context: ./backstage
       dockerfile: Dockerfile
-    container_name: frontend-kmm-app
+    container_name: backstage
     restart: always
     ports:
       - "3000:3000"
