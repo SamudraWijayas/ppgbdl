@@ -84,12 +84,12 @@ services:
     container_name: m2bl-app
     restart: always
     ports:
-      - "4000:4000"
+      - "3001:3001"
     environment:
       - NEXT_PUBLIC_API_URL=http://backend-app:5000/api/
       - NEXT_PUBLIC_IMAGE=http://backend-app:5000
       - NEXTAUTH_SECRET=I44s8c044eZOnOFYRgkpONfxgbEtu5iuObu0h4JzlmA=
-      - NEXTAUTH_URL=http://76.13.187.228:4000
+      - NEXTAUTH_URL=http://76.13.187.228:3001
       - NODE_ENV=production
     depends_on:
       - backend
