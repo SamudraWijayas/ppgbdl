@@ -76,7 +76,7 @@ services:
       - app-network
     command: sh -c "npx prisma migrate deploy && node dist/index.js"
 
-  # Frontend Absen (port 4000)
+  # Frontend Absen (port host:container = 3001:3000)
   frontend-absen:
     build:
       context: ./frontend
@@ -84,7 +84,7 @@ services:
     container_name: m2bl-app
     restart: always
     ports:
-      - "3001:3001"
+      - "3001:3000"
     environment:
       - NEXT_PUBLIC_API_URL=http://backend-app:5000/api/
       - NEXT_PUBLIC_IMAGE=http://backend-app:5000
