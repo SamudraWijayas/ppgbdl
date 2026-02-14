@@ -115,7 +115,7 @@ services:
     build:
       context: ./backstage
       dockerfile: Dockerfile
-    container_name: backstage
+    container_name: backstage-app
     restart: always
     ports:
       - "3000:3000"
