@@ -1,0 +1,13 @@
+steps:
+  deploy:
+    image: docker:24
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - docker compose -f https://raw.githubusercontent.com/SamudraWijayas/ppgbdl/main/docker-compose.yml down
+      - docker compose -f https://raw.githubusercontent.com/SamudraWijayas/ppgbdl/main/docker-compose.yml pull
+      - docker compose -f https://raw.githubusercontent.com/SamudraWijayas/ppgbdl/main/docker-compose.yml up -d --build
+    when:
+      - event: push
+        branch:
+          - main
